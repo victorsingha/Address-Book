@@ -50,11 +50,19 @@ namespace Address_Book
                         break;
 
                     case 3:
-                        Console.WriteLine("Enter First Name of the Contact You Want to Edit.:");
+                        Console.WriteLine("Enter First Name of the Contact You Want to Edit.");
                         string fName = Console.ReadLine();
                         contactOperation.editContact(fName);
                         break;
-                   
+
+                    case 4:
+                        Console.WriteLine("Enter First Name of the Contact You Want to Delete.");
+                        string name = Console.ReadLine();
+                        contactOperation.deleteContact(name);
+                        break;
+                    case 5:
+                        System.Environment.Exit(1);
+                        break;
                 }
 
                 
