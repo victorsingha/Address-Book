@@ -6,7 +6,7 @@ namespace Address_Book
 {
     public class ContactOperation
     {
-        List<Contact> contactList = new List<Contact>();
+        
         private Dictionary<string, Contact> ContactLists = new Dictionary<string,Contact>();
         private Dictionary<string, List<Contact>> CitiesDict = new Dictionary<string, List<Contact>>();
         public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
@@ -14,8 +14,6 @@ namespace Address_Book
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             this.ContactLists.Add(firstName, newContact);
             addCityList(newContact);
-
-
         }
         public void showList()
         {
@@ -107,42 +105,34 @@ namespace Address_Book
             }
         }
         public void addCityList(Contact contact)
-        {
-           
+        {         
                 string key = contact.City;
                 Contact value = contact;
-                contactList.Add(value);
                 if (CitiesDict.ContainsKey(key))
                 {
-                    CitiesDict[key] = contactList;              
-                }
+                    CitiesDict[key].Add(value);                
+            }
                 else
                 {
+                    List<Contact> contactList = new List<Contact>();
                     CitiesDict.Add(key, contactList);
-                }
+                    CitiesDict[key].Add(value);
+            }
                     
            
         }
-        public void showListByCity()
+        public void showListByCity(string city)
         {
-            string input = "assam";
-            foreach(var data in CitiesDict)
+            List<Contact> list = CitiesDict[city];
+            foreach (var i in list)
             {
-                if(data.Key == input)
-                {
-                    List<Contact> list = CitiesDict[data.Key];
-                    foreach(var i in list)
-                    {
-                        Console.WriteLine(i.FirstName + i.City);
-                    }
-                                     
-                }
+                Console.WriteLine("City: "+i.City+" || FirstName: "+i.FirstName);
             }
 
         }
         public void searchCityState(string input)
         {
-            
+            showListByCity(input);
         }
     }
 }
