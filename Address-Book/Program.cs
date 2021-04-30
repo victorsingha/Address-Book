@@ -10,6 +10,7 @@ namespace Address_Book
             Console.WriteLine("-----------------------");
             
             ContactOperation contactOperation = new ContactOperation();
+            contactOperation.generateData();
             while (true)
             {
                 Console.WriteLine("-----------------------");
@@ -62,16 +63,19 @@ namespace Address_Book
                         string name = Console.ReadLine();
                         contactOperation.deleteContact(name);
                         break;
+
                     case 5:
                         Console.WriteLine("Enter City Name.");
                         string cityName = Console.ReadLine();
                         contactOperation.searchCity(cityName);
                         break;
+
                     case 6:
                         Console.WriteLine("Enter State Name.");
                         string stateName = Console.ReadLine();
                         contactOperation.searchState(stateName);
                         break;
+
                     case 7:
                         System.Environment.Exit(1);
                         break;
