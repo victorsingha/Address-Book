@@ -102,5 +102,9 @@ namespace Address_Book
                 }
             }
         }
+        public void searchCityState(string cityState)
+        {
+
+        }
     }
 }
