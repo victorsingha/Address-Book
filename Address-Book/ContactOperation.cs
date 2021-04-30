@@ -121,7 +121,7 @@ namespace Address_Book
                     
            
         }
-        public void searchCityState(string city)
+        public void searchCity(string city)
         {
             List<Contact> list = CitiesDict[city];
             foreach (var i in list)

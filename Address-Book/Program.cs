@@ -63,8 +63,8 @@ namespace Address_Book
                         break;
                     case 5:
                         Console.WriteLine("Enter City Name.");
-                        string nameCityState = Console.ReadLine();
-                        contactOperation.searchCityState(nameCityState);
+                        string cityName = Console.ReadLine();
+                        contactOperation.searchCity(cityName);
                         break;
                     case 6:
                         System.Environment.Exit(1);
