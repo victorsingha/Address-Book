@@ -6,12 +6,26 @@ namespace Address_Book
 {
     public class ContactOperation
     {
+        List<Contact> cityList = new List<Contact>();
         private Dictionary<string, Contact> ContactLists = new Dictionary<string,Contact>();
+        private Dictionary<string, List<Contact>> CityStateLists = new Dictionary<string, List<Contact>>();
         public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
         {
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-            //this.ContactList.Add(newContact);
             this.ContactLists.Add(firstName, newContact);
+            this.CityStateLists.Add(city, cityList );
+            foreach(var i in CityStateLists)
+            {
+                try 
+                {
+
+                }
+                catch(Exception e)
+                {
+
+                }
+               
+            }
         }
         public void showList()
         {
@@ -94,7 +108,7 @@ namespace Address_Book
         {
             foreach(var contact in ContactLists)
             {
-                if (contact.Key == fname)
+                if (contact.Value.FirstName == fname)
                 {
                     ContactLists.Remove(contact.Key);
                     Console.WriteLine("Contact Deleted Successfully.");
