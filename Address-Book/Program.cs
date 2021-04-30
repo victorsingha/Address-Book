@@ -70,10 +70,12 @@ namespace Address_Book
                         System.Environment.Exit(1);
                         break;
                 }
-
                 
+                contactOperation.addCityList();
+                contactOperation.showListByCity();
 
-                
+
+
             }
             Console.ReadKey();
         }

@@ -6,21 +6,13 @@ namespace Address_Book
 {
     public class ContactOperation
     {
-        List<string> FirstNameList = new List<string>();
+        List<Contact> contactList = new List<Contact>();
         private Dictionary<string, Contact> ContactLists = new Dictionary<string,Contact>();
-        private Dictionary<string, List<string>> Cities = new Dictionary<string, List<string>>();
+        private Dictionary<string, List<Contact>> CitiesDict = new Dictionary<string, List<Contact>>();
         public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
         {
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             this.ContactLists.Add(firstName, newContact);
-
-            FirstNameList.Add(firstName);
-            this.Cities.Add(city, FirstNameList);
-            foreach(var i in Cities)
-            {
-                List<string> list = i.Value;
-                list.ForEach(Console.WriteLine);
-            }
         }
         public void showList()
         {
@@ -111,9 +103,44 @@ namespace Address_Book
                 }
             }
         }
+        public void addCityList()
+        {
+            foreach(var contact in ContactLists)
+            {
+                string key = contact.Value.City;
+                Contact value = contact.Value;
+                contactList.Add(value);
+                if (CitiesDict.ContainsKey(key) == false)
+                {   
+                    CitiesDict.Add(key, contactList);       
+                }
+                else
+                {
+                    CitiesDict[key] = contactList;
+                }
+                    
+            } 
+        }
+        public void showListByCity()
+        {
+            string input = "assam";
+            foreach(var data in CitiesDict)
+            {
+                if(data.Key == input)
+                {
+                    List<Contact> list = data.Value;
+                    foreach(var i in list)
+                    {
+                        Console.WriteLine(i.FirstName + i.City);
+                    }
+                                     
+                }
+            }
+
+        }
         public void searchCityState(string input)
         {
-
+            
         }
     }
 }
