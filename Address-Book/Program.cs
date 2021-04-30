@@ -70,9 +70,10 @@ namespace Address_Book
                         System.Environment.Exit(1);
                         break;
                 }
-
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
             }
-            Console.ReadKey();
+            
         }
     }
 }

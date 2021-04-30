@@ -121,18 +121,13 @@ namespace Address_Book
                     
            
         }
-        public void showListByCity(string city)
+        public void searchCityState(string city)
         {
             List<Contact> list = CitiesDict[city];
             foreach (var i in list)
             {
-                Console.WriteLine("City: "+i.City+" || FirstName: "+i.FirstName);
+                Console.WriteLine("City: " + i.City + " || FirstName: " + i.FirstName);
             }
-
-        }
-        public void searchCityState(string input)
-        {
-            showListByCity(input);
         }
     }
 }
