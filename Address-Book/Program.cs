@@ -71,7 +71,6 @@ namespace Address_Book
                         break;
                 }
                 
-                contactOperation.addCityList();
                 contactOperation.showListByCity();
 
 

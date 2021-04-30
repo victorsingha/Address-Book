@@ -13,6 +13,9 @@ namespace Address_Book
         {
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             this.ContactLists.Add(firstName, newContact);
+            addCityList(newContact);
+
+
         }
         public void showList()
         {
@@ -103,23 +106,22 @@ namespace Address_Book
                 }
             }
         }
-        public void addCityList()
+        public void addCityList(Contact contact)
         {
-            foreach(var contact in ContactLists)
-            {
-                string key = contact.Value.City;
-                Contact value = contact.Value;
+           
+                string key = contact.City;
+                Contact value = contact;
                 contactList.Add(value);
-                if (CitiesDict.ContainsKey(key) == false)
-                {   
-                    CitiesDict.Add(key, contactList);       
+                if (CitiesDict.ContainsKey(key))
+                {
+                    CitiesDict[key] = contactList;              
                 }
                 else
                 {
-                    CitiesDict[key] = contactList;
+                    CitiesDict.Add(key, contactList);
                 }
                     
-            } 
+           
         }
         public void showListByCity()
         {
@@ -128,7 +130,7 @@ namespace Address_Book
             {
                 if(data.Key == input)
                 {
-                    List<Contact> list = data.Value;
+                    List<Contact> list = CitiesDict[data.Key];
                     foreach(var i in list)
                     {
                         Console.WriteLine(i.FirstName + i.City);
