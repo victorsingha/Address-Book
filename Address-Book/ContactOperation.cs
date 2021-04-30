@@ -128,6 +128,7 @@ namespace Address_Book
             {
                 Console.WriteLine("City: " + contact.City + " || FirstName: " + contact.FirstName);
             }
+            Console.WriteLine("Total Count Based on City: " + list.Count);
         }
         public void addStateList(Contact contact)
         {
@@ -151,6 +152,7 @@ namespace Address_Book
             {
                 Console.WriteLine("State: " + contact.State + " || FirstName: " + contact.FirstName);
             }
+            Console.WriteLine("Total Count Based on State: "+list.Count);
         }
     }
 }
