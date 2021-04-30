@@ -9,11 +9,13 @@ namespace Address_Book
         
         private Dictionary<string, Contact> ContactLists = new Dictionary<string,Contact>();
         private Dictionary<string, List<Contact>> CitiesDict = new Dictionary<string, List<Contact>>();
+        private Dictionary<string, List<Contact>> StatesDict = new Dictionary<string, List<Contact>>();
         public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
         {
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             this.ContactLists.Add(firstName, newContact);
             addCityList(newContact);
+            addStateList(newContact);
         }
         public void showList()
         {
@@ -117,16 +119,37 @@ namespace Address_Book
                     List<Contact> contactList = new List<Contact>();
                     CitiesDict.Add(key, contactList);
                     CitiesDict[key].Add(value);
-            }
-                    
-           
+            }   
         }
         public void searchCity(string city)
         {
             List<Contact> list = CitiesDict[city];
-            foreach (var i in list)
+            foreach (var contact in list)
             {
-                Console.WriteLine("City: " + i.City + " || FirstName: " + i.FirstName);
+                Console.WriteLine("City: " + contact.City + " || FirstName: " + contact.FirstName);
+            }
+        }
+        public void addStateList(Contact contact)
+        {
+            string key = contact.State;
+            Contact value = contact;
+            if (StatesDict.ContainsKey(key))
+            {
+                StatesDict[key].Add(value);
+            }
+            else
+            {
+                List<Contact> contactList = new List<Contact>();
+                StatesDict.Add(key, contactList);
+                StatesDict[key].Add(value);
+            }
+        }
+        public void searchState(string state)
+        {
+            List<Contact> list = StatesDict[state];
+            foreach (var contact in list)
+            {
+                Console.WriteLine("State: " + contact.State + " || FirstName: " + contact.FirstName);
             }
         }
     }

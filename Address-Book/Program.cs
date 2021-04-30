@@ -19,7 +19,8 @@ namespace Address_Book
                 Console.WriteLine("3.Edit Contact");
                 Console.WriteLine("4.Delete Contact");
                 Console.WriteLine("5.Search by City");
-                Console.WriteLine("6.Exit");
+                Console.WriteLine("6.Search by State");
+                Console.WriteLine("7.Exit");
                 Console.WriteLine("-----------------------");
                 int choice = Convert.ToInt32(Console.ReadLine());
   
@@ -67,6 +68,11 @@ namespace Address_Book
                         contactOperation.searchCity(cityName);
                         break;
                     case 6:
+                        Console.WriteLine("Enter State Name.");
+                        string stateName = Console.ReadLine();
+                        contactOperation.searchState(stateName);
+                        break;
+                    case 7:
                         System.Environment.Exit(1);
                         break;
                 }
