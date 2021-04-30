@@ -6,25 +6,20 @@ namespace Address_Book
 {
     public class ContactOperation
     {
-        List<Contact> cityList = new List<Contact>();
+        List<string> FirstNameList = new List<string>();
         private Dictionary<string, Contact> ContactLists = new Dictionary<string,Contact>();
-        private Dictionary<string, List<Contact>> CityStateLists = new Dictionary<string, List<Contact>>();
+        private Dictionary<string, List<string>> Cities = new Dictionary<string, List<string>>();
         public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
         {
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             this.ContactLists.Add(firstName, newContact);
-            this.CityStateLists.Add(city, cityList );
-            foreach(var i in CityStateLists)
+
+            FirstNameList.Add(firstName);
+            this.Cities.Add(city, FirstNameList);
+            foreach(var i in Cities)
             {
-                try 
-                {
-
-                }
-                catch(Exception e)
-                {
-
-                }
-               
+                List<string> list = i.Value;
+                list.ForEach(Console.WriteLine);
             }
         }
         public void showList()
@@ -48,7 +43,7 @@ namespace Address_Book
         {
             foreach(var contact in ContactLists)
             {
-                if(contact.Key == fName)
+                if(contact.Value.FirstName == fName)
                 {
                     Console.WriteLine("Edit? Old FirstName: " + contact.Value.FirstName);
                     string newFirstName = Console.ReadLine();
@@ -116,7 +111,7 @@ namespace Address_Book
                 }
             }
         }
-        public void searchCityState(string cityState)
+        public void searchCityState(string input)
         {
 
         }
