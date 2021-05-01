@@ -16,7 +16,7 @@ namespace Address_Book
             Contact data3 = new Contact("kyla", "olsen", "Ap #651-8679 Sodales Av.", "mumbai", "maharastra", "876554", "9877687745", "kyla@yahoo.com");
             Contact data4 = new Contact("hiroku", "moreno", "935-9940 Tortor. Street.", "bengaluru", "karnataka", "566475", "7587465546", "hiroku@gmail.com");
             Contact data5 = new Contact("ina", "moran", "Erie Rhode Island 24975", "bengaluru", "karnataka", "655739", "6878998709", "ina@yahoo.com");
-            ContactLists.Add("ajay", data1);
+            ContactLists.Add("amar", data1);
             ContactLists.Add("iris", data2);
             ContactLists.Add("kyla", data3);
             ContactLists.Add("hiroku", data4);
@@ -33,11 +33,18 @@ namespace Address_Book
             addStateList(data5);
         }
         public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
-        {
-            Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-            this.ContactLists.Add(firstName, newContact);
-            addCityList(newContact);
-            addStateList(newContact);
+        {         
+            if (ContactLists.ContainsKey(firstName))
+            {
+                Console.WriteLine("Contact already exist with same FirstName.");
+            }
+            else
+            {
+                Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+                this.ContactLists.Add(firstName, newContact);
+                addCityList(newContact);
+                addStateList(newContact);
+            }         
         }
         public void showList()
         {
