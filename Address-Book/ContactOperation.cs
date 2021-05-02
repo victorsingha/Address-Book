@@ -34,8 +34,6 @@ namespace Address_Book
                 Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
                 this.ContactLists.Add(firstName, newContact);
                 filterCityState(ContactLists);
-                //addCityList(newContact);
-                //addStateList(newContact);
             }         
         }
         public void showList()
