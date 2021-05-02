@@ -21,16 +21,7 @@ namespace Address_Book
             ContactLists.Add("kyla", data3);
             ContactLists.Add("hiroku", data4);
             ContactLists.Add("ina", data5);
-            addCityList(data1);
-            addCityList(data2);
-            addCityList(data3);
-            addCityList(data4);
-            addCityList(data5);
-            addStateList(data1);
-            addStateList(data2);
-            addStateList(data3);
-            addStateList(data4);
-            addStateList(data5);
+            filterCityState(ContactLists);
         }
         public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
         {         
@@ -42,8 +33,9 @@ namespace Address_Book
             {
                 Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
                 this.ContactLists.Add(firstName, newContact);
-                addCityList(newContact);
-                addStateList(newContact);
+                filterCityState(ContactLists);
+                //addCityList(newContact);
+                //addStateList(newContact);
             }         
         }
         public void showList()
@@ -101,10 +93,12 @@ namespace Address_Book
                     if (newCity != "")
                     {
                         contact.Value.City = newCity;
+                        filterCityState(ContactLists);
                     }
                     if (newState != "")
                     {
                         contact.Value.State = newState;
+                        filterCityState(ContactLists);
                     }
                     if (newZip != "")
                     {
@@ -129,6 +123,7 @@ namespace Address_Book
                 {
                     ContactLists.Remove(contact.Key);
                     Console.WriteLine("Contact Deleted Successfully.");
+                    filterCityState(ContactLists);
                     break;
                 }
             }
@@ -180,6 +175,16 @@ namespace Address_Book
                 Console.WriteLine("State: " + contact.State + " || FirstName: " + contact.FirstName);
             }
             Console.WriteLine("Total Count Based on State: "+list.Count);
+        }
+        public void filterCityState(Dictionary<string, Contact> ContactLists)
+        {
+            CitiesDict.Clear();
+            StatesDict.Clear();
+            foreach (var contact in ContactLists)
+            {
+                addCityList(contact.Value);
+                addStateList(contact.Value);
+            }
         }
     }
 }
