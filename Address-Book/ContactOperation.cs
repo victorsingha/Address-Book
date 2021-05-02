@@ -143,12 +143,19 @@ namespace Address_Book
         }
         public void searchCity(string city)
         {
-            List<Contact> list = CitiesDict[city];
-            foreach (var contact in list)
+            try
             {
-                Console.WriteLine("City: " + contact.City + " || FirstName: " + contact.FirstName);
+                List<Contact> list = CitiesDict[city];
+                foreach (var contact in list)
+                {
+                    Console.WriteLine("City: " + contact.City + " || FirstName: " + contact.FirstName);
+                }
+                Console.WriteLine("Total Count Based on City: " + list.Count);
+            }catch(Exception e)
+            {
+                Console.WriteLine("No Contact with this City.");
             }
-            Console.WriteLine("Total Count Based on City: " + list.Count);
+            
         }
         public void addStateList(Contact contact)
         {
@@ -167,12 +174,19 @@ namespace Address_Book
         }
         public void searchState(string state)
         {
-            List<Contact> list = StatesDict[state];
-            foreach (var contact in list)
+            try
             {
-                Console.WriteLine("State: " + contact.State + " || FirstName: " + contact.FirstName);
+                List<Contact> list = StatesDict[state];
+                foreach (var contact in list)
+                {
+                    Console.WriteLine("State: " + contact.State + " || FirstName: " + contact.FirstName);
+                }
+                Console.WriteLine("Total Count Based on State: " + list.Count);
+            }catch(Exception e)
+            {
+                Console.WriteLine("No Contact with this State.");
             }
-            Console.WriteLine("Total Count Based on State: "+list.Count);
+            
         }
         public void filterCityState(Dictionary<string, Contact> ContactLists)
         {
