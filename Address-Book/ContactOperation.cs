@@ -56,7 +56,7 @@ namespace Address_Book
         {
             foreach(var contact in ContactLists)
             {
-                if(contact.Value.FirstName == fName)
+                if(contact.Value.FirstName.ToLower() == fName.ToLower())
                 {
                     Console.WriteLine("Edit? Old FirstName: " + contact.Value.FirstName);
                     string newFirstName = Console.ReadLine();
@@ -117,7 +117,7 @@ namespace Address_Book
         {
             foreach(var contact in ContactLists)
             {
-                if (contact.Value.FirstName == fname)
+                if (contact.Value.FirstName.ToLower() == fname.ToLower())
                 {
                     ContactLists.Remove(contact.Key);
                     Console.WriteLine("Contact Deleted Successfully.");
