@@ -23,28 +23,26 @@ namespace Address_Book
             ContactLists.Add(data5);
             filterCityState(ContactLists);
         }
-        public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
+        public bool checkDuplicate(string firstName) 
         {
             bool flag = false;
-            foreach(Contact contact in ContactLists)
+            foreach (Contact contact in ContactLists)
             {
-                if (contact.FirstName.ToLower() == firstName.ToLower()) 
+                if (contact.FirstName.ToLower() == firstName.ToLower())
                 {
                     flag = true;
+                    Console.WriteLine("Contact already exist with same FirstName.");
                     break;
-                } 
+                }
             }
+            if (flag) return true;
+            else return false;
+        }
+        public void addContact(string firstName, string lastName, string address, string city, string state, string zip, string phoneNumber, string email)
+        {
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-            if (flag)
-            {
-                Console.WriteLine("Contact already exist with same FirstName.");
-            }
-            else
-            {
-                //Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-                this.ContactLists.Add(newContact);
-                filterCityState(ContactLists);
-            }         
+            this.ContactLists.Add(newContact);
+            filterCityState(ContactLists);
         }
         public void showList()
         {
