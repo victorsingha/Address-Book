@@ -48,7 +48,7 @@ namespace Address_Book
         {
            foreach(var contact in ContactLists)
             {
-                Console.WriteLine("#####################");
+                Console.WriteLine("-----------------------------------");
                 Console.WriteLine("FirstName: "+contact.FirstName);
                 Console.WriteLine("LastName: "+contact.LastName);
                 Console.WriteLine("Address: "+contact.Address);
@@ -57,7 +57,8 @@ namespace Address_Book
                 Console.WriteLine("ZipCode: "+contact.Zip);
                 Console.WriteLine("Phone Number: "+contact.PhoneNumber);
                 Console.WriteLine("Email: "+contact.Email);
-                Console.WriteLine("#####################");
+                Console.WriteLine("-----------------------------------");
+                Console.WriteLine("                                   ");
             }
         }
         public void editContact(string fName)
