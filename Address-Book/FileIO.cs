@@ -15,7 +15,7 @@ namespace Address_Book
                 tw.WriteLine(string.Format("FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email"));
                 foreach (Contact contact in contactList)
                 {
-                    tw.WriteLine(string.Format($"{contact.FirstName},{contact.LastName},{contact.Address},{contact.City},{contact.State},{contact.Zip},{contact.PhoneNumber},{contact.Email},"));
+                    tw.WriteLine(string.Format($"{contact.FirstName},{contact.LastName},{contact.Address},{contact.City},{contact.State},{contact.Zip},{contact.PhoneNumber},{contact.Email}"));
                 }
             }
         }
