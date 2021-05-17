@@ -24,7 +24,7 @@ namespace Address_Book
             var contactList = JsonConvert.DeserializeObject<List<Contact>>(json);
             foreach(Contact contact in contactList)
             {
-                Console.WriteLine($"First Name: {contact.FirstName}");
+                Console.WriteLine($"Name: {contact.FirstName} {contact.LastName}");
             }
             return contactList;
         }

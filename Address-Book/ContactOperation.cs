@@ -15,6 +15,12 @@ namespace Address_Book
             ContactLists = JsonHandler.GetDataFromJson();
             filterCityState(ContactLists);
         }
+        public void Write_To_JSON_CSV_TXT()
+        {
+            CSVHandler.WriteToCSVFile(ContactLists);
+            FileIO.WriteToTxt(ContactLists);
+            JsonHandler.WriteToJson(ContactLists);
+        }
         public bool checkDuplicate(string firstName) 
         {
             bool flag = false;
@@ -35,11 +41,8 @@ namespace Address_Book
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             this.ContactLists.Add(newContact);
             filterCityState(ContactLists);
-            
-            //writing to txt,csv,json
-            CSVHandler.WriteToCSVFile(ContactLists);
-            FileIO.WriteToTxt(ContactLists);
-            JsonHandler.WriteToJson(ContactLists);
+            Write_To_JSON_CSV_TXT();
+
         }
         public void showList()
         {
@@ -116,6 +119,7 @@ namespace Address_Book
                     {
                         contact.Email = newEmail;
                     }
+                    Write_To_JSON_CSV_TXT();
                 }
             }
         }
@@ -128,6 +132,7 @@ namespace Address_Book
                     ContactLists.Remove(contact);
                     Console.WriteLine("Contact Deleted Successfully.");
                     filterCityState(ContactLists);
+                    Write_To_JSON_CSV_TXT();
                     break;
                 }
             }
