@@ -6,3 +6,4 @@ hiroku,moreno,935-9940 Tortor. Street.,bengaluru,karnataka,566475,7587465546,hir
 ina,moran,Erie Rhode Island 24975,bengaluru,karnataka,655739,6878998709,ina@yahoo.com
 iyan,zeraz,#654,mumbai,maharastra,456566,8767764532,iyaz.zz@yahoo.in
 azad,messa,#764 baker street,mumbai,maharastra,334467,8678564736,mssi.az@yahoo.com
+victor,watka,#455 street deas,mumbai,maharastra,756656,6574654651,d.vk@gmail.co.in

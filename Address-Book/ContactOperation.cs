@@ -161,22 +161,6 @@ namespace Address_Book
                 CitiesDict[key].Add(value);
             }   
         }
-        public void searchCity(string city)
-        {
-            try
-            {
-                List<Contact> list = CitiesDict[city];
-                foreach (var contact in list)
-                {
-                    Console.WriteLine($"Name: {contact.FirstName} {contact.LastName} [{contact.City}]");
-                }
-                Console.WriteLine("Total Count Based on City: " + list.Count);
-            }catch(Exception e)
-            {
-                Console.WriteLine($"------No Contact with this City.------");
-            }
-            
-        }
         public void addStateList(Contact contact)
         {
             string key = contact.State;
@@ -192,20 +176,32 @@ namespace Address_Book
                 StatesDict[key].Add(value);
             }
         }
-        public void searchState(string state)
+        public void searchCityOrState(string key)
         {
             try
             {
-                List<Contact> list = StatesDict[state];
+                List<Contact> list;
+                if (CitiesDict.ContainsKey(key))
+                {
+                    list = CitiesDict[key];
+                }
+                else
+                {
+                    list = StatesDict[key];
+                }
                 foreach (var contact in list)
                 {
-                    Console.WriteLine($"Name: {contact.FirstName} {contact.LastName} [{contact.State}]");
+                    Console.WriteLine("------------------------------------------");
+                    Console.WriteLine($" {contact.FirstName} {contact.LastName} [{contact.City}] [{contact.State}]");
                 }
-                Console.WriteLine("Total Count Based on State: " + list.Count);
-            }catch(Exception e)
+                Console.WriteLine("------------------------------------------");
+                Console.WriteLine("Total Count: " + list.Count);
+                Console.WriteLine("------------------------------------------");
+            }
+            catch (Exception e)
             {
-                Console.WriteLine($"------No Contact with this City.------");
-            }            
+                Console.WriteLine($"------No Contact with this City/State.------");
+            }
         }
         public void filterCityState(List<Contact> ContactLists)
         {

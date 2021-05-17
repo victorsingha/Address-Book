@@ -76,13 +76,13 @@ namespace Address_Book
                         case 5:
                             Console.WriteLine("Enter City Name.");
                             string cityName = Console.ReadLine();
-                            contactOperation.searchCity(cityName);
+                            contactOperation.searchCityOrState(cityName);
                             break;
 
                         case 6:
                             Console.WriteLine("Enter State Name.");
                             string stateName = Console.ReadLine();
-                            contactOperation.searchState(stateName);
+                            contactOperation.searchCityOrState(stateName);
                             break;
 
                         case 7:
