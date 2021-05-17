@@ -15,6 +15,15 @@ namespace Address_Book
             ContactLists = JsonHandler.GetDataFromJson();
             filterCityState(ContactLists);
         }
+        public void ShowInBrief()
+        {
+            int i = 1;
+            foreach (Contact contact in ContactLists)
+            {
+                Console.WriteLine($"{i}.{contact.FirstName} {contact.LastName} [{contact.Email}]");
+                i++;
+            }
+        }
         public void Write_To_JSON_CSV_TXT()
         {
             CSVHandler.WriteToCSVFile(ContactLists);
@@ -130,7 +139,7 @@ namespace Address_Book
                 if (contact.FirstName.ToLower() == fname.ToLower())
                 {
                     ContactLists.Remove(contact);
-                    Console.WriteLine("Contact Deleted Successfully.");
+                    Console.WriteLine("------Contact Deleted Successfully.------");
                     filterCityState(ContactLists);
                     Write_To_JSON_CSV_TXT();
                     break;
@@ -159,12 +168,12 @@ namespace Address_Book
                 List<Contact> list = CitiesDict[city];
                 foreach (var contact in list)
                 {
-                    Console.WriteLine("City: " + contact.City + " || FirstName: " + contact.FirstName);
+                    Console.WriteLine($"Name: {contact.FirstName} {contact.LastName} [{contact.City}]");
                 }
                 Console.WriteLine("Total Count Based on City: " + list.Count);
             }catch(Exception e)
             {
-                Console.WriteLine($"No Contact with this City. {e}");
+                Console.WriteLine($"------No Contact with this City.------");
             }
             
         }
@@ -190,14 +199,13 @@ namespace Address_Book
                 List<Contact> list = StatesDict[state];
                 foreach (var contact in list)
                 {
-                    Console.WriteLine("State: " + contact.State + " || FirstName: " + contact.FirstName);
+                    Console.WriteLine($"Name: {contact.FirstName} {contact.LastName} [{contact.State}]");
                 }
                 Console.WriteLine("Total Count Based on State: " + list.Count);
             }catch(Exception e)
             {
-                Console.WriteLine("No Contact with this State.");
-            }
-            
+                Console.WriteLine($"------No Contact with this City.------");
+            }            
         }
         public void filterCityState(List<Contact> ContactLists)
         {
