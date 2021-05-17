@@ -11,16 +11,8 @@ namespace Address_Book
         private Dictionary<string, List<Contact>> StatesDict = new Dictionary<string, List<Contact>>();
         public void generateData()
         {
-            Contact data1 = new Contact("amar", "seth", "606-3727 Ullamcorper. Street", "mumbai", "maharastra", "766584", "7654635245", "amar@gmail.com");
-            Contact data2 = new Contact("iris", "watson", "San Antonio MI 47096", "mumbai", "maharastra", "633564", "8576456736", "iris@techz.co.in");
-            Contact data3 = new Contact("kyla", "olsen", "Ap #651-8679 Sodales Av.", "mumbai", "maharastra", "876554", "9877687745", "kyla@yahoo.com");
-            Contact data4 = new Contact("hiroku", "moreno", "935-9940 Tortor. Street.", "bengaluru", "karnataka", "566475", "7587465546", "hiroku@gmail.com");
-            Contact data5 = new Contact("ina", "moran", "Erie Rhode Island 24975", "bengaluru", "karnataka", "655739", "6878998709", "ina@yahoo.com");
-            ContactLists.Add(data1);
-            ContactLists.Add(data2);
-            ContactLists.Add(data3);
-            ContactLists.Add(data4);
-            ContactLists.Add(data5);
+            // generating data from JSON file.
+            ContactLists = JsonHandler.GetDataFromJson();
             filterCityState(ContactLists);
         }
         public bool checkDuplicate(string firstName) 

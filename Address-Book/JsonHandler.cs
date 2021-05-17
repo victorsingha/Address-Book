@@ -8,14 +8,25 @@ namespace Address_Book
 {
     class JsonHandler
     {
+        const string path = @"C:\Users\vicun\source\repos\Address-Book\Address-Book\Data.json";
         public static void WriteToJson(List<Contact> contactList)
         {
             string sJSONResponse = JsonConvert.SerializeObject(contactList);
-            string path = @"C:\Users\vicun\source\repos\Address-Book\Address-Book\Data.json";
+            
             using (TextWriter tw = new StreamWriter(path))
             {
                 tw.WriteLine(sJSONResponse);
             }
+        }
+        public static List<Contact> GetDataFromJson()
+        {
+            string json = File.ReadAllText(path);
+            var contactList = JsonConvert.DeserializeObject<List<Contact>>(json);
+            foreach(Contact contact in contactList)
+            {
+                Console.WriteLine($"First Name: {contact.FirstName}");
+            }
+            return contactList;
         }
     }
 }
