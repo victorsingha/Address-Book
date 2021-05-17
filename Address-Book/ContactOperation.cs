@@ -47,6 +47,7 @@ namespace Address_Book
             //writing to txt,csv
             CSVHandler.WriteToCSVFile(ContactLists);
             FileIO.WriteToTxt(ContactLists);
+            JsonHandler.WriteToJson(ContactLists);
         }
         public void showList()
         {
@@ -166,7 +167,7 @@ namespace Address_Book
                 Console.WriteLine("Total Count Based on City: " + list.Count);
             }catch(Exception e)
             {
-                Console.WriteLine("No Contact with this City.");
+                Console.WriteLine($"No Contact with this City. {e}");
             }
             
         }
