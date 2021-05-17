@@ -10,10 +10,11 @@ namespace Address_Book
             contactOperation.generateData();
             while (true)
             {
-                Console.WriteLine("-----------------------");
-                Console.WriteLine("Welcome To Address Book");
-                Console.WriteLine("-----------------------");
-                Console.WriteLine("-----------------------");
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("  Welcome To Address Book");
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("---------------------------");
                 Console.WriteLine("  Select Choice:");
                 Console.WriteLine("  Add Contact     [1]");
                 Console.WriteLine("  Show Contacts   [2]");
@@ -22,11 +23,11 @@ namespace Address_Book
                 Console.WriteLine("  Search by City  [5]");
                 Console.WriteLine("  Search by State [6]");
                 Console.WriteLine("  Exit            [7]");
-                Console.WriteLine("-----------------------------------");
-                Console.WriteLine("----------- CONTACT LIST ----------");
-                Console.WriteLine("-----------------------------------");
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("------------- CONTACT LIST -----------");
+                Console.WriteLine("--------------------------------------");
                 contactOperation.ShowInBrief();
-                Console.WriteLine("-----------------------------------");
+                Console.WriteLine("--------------------------------------");
 
                 try
                 {

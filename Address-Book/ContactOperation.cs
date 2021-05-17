@@ -20,7 +20,7 @@ namespace Address_Book
             int i = 1;
             foreach (Contact contact in ContactLists)
             {
-                Console.WriteLine($"{i}.{contact.FirstName} {contact.LastName} [{contact.Email}]");
+                Console.WriteLine($" {i}.{contact.FirstName} {contact.LastName} [{contact.Email}]");
                 i++;
             }
         }
@@ -58,14 +58,14 @@ namespace Address_Book
            foreach(var contact in ContactLists)
             {
                 Console.WriteLine("-----------------------------------");
-                Console.WriteLine("FirstName: "+contact.FirstName);
-                Console.WriteLine("LastName: "+contact.LastName);
-                Console.WriteLine("Address: "+contact.Address);
-                Console.WriteLine("City: "+contact.City);
-                Console.WriteLine("State: "+contact.State);
-                Console.WriteLine("ZipCode: "+contact.Zip);
-                Console.WriteLine("Phone Number: "+contact.PhoneNumber);
-                Console.WriteLine("Email: "+contact.Email);
+                Console.WriteLine(" FirstName: "+contact.FirstName);
+                Console.WriteLine(" LastName: "+contact.LastName);
+                Console.WriteLine(" Address: "+contact.Address);
+                Console.WriteLine(" City: "+contact.City);
+                Console.WriteLine(" State: "+contact.State);
+                Console.WriteLine(" ZipCode: "+contact.Zip);
+                Console.WriteLine(" Phone Number: "+contact.PhoneNumber);
+                Console.WriteLine(" Email: "+contact.Email);
                 Console.WriteLine("-----------------------------------");
                 Console.WriteLine("                                   ");
             }
