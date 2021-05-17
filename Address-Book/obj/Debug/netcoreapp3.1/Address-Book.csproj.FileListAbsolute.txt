@@ -11,3 +11,5 @@ C:\Users\vicun\source\repos\Address-Book\Address-Book\obj\Debug\netcoreapp3.1\Ad
 C:\Users\vicun\source\repos\Address-Book\Address-Book\obj\Debug\netcoreapp3.1\Address-Book.dll
 C:\Users\vicun\source\repos\Address-Book\Address-Book\obj\Debug\netcoreapp3.1\Address-Book.pdb
 C:\Users\vicun\source\repos\Address-Book\Address-Book\obj\Debug\netcoreapp3.1\Address-Book.genruntimeconfig.cache
+C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\CsvHelper.dll
+C:\Users\vicun\source\repos\Address-Book\Address-Book\obj\Debug\netcoreapp3.1\Address-Book.csproj.CopyComplete

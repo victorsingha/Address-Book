@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "mYK+D5Eo1DAUZzOB+MCHg0libPSLjC8s73LzYquaijWEaBP91cig7zcrtlXV9EYSXPtXv1ooNVNAuI+t2HDSqw==",
+  "dgSpecHash": "LhfdYBcgRaM4uUy0lMvbVJ4vCVxUkNwH2DjvKQIKjxLS6qVqKttFyxkhQmUDKJeoNYkJUnT9Hh+/Tnbb6B4lhA==",
   "success": true,
   "projectFilePath": "C:\\Users\\vicun\\source\\repos\\Address-Book\\Address-Book\\Address-Book.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\vicun\\.nuget\\packages\\csvhelper\\27.0.2\\csvhelper.27.0.2.nupkg.sha512",
+    "C:\\Users\\vicun\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
