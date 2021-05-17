@@ -43,7 +43,10 @@ namespace Address_Book
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             this.ContactLists.Add(newContact);
             filterCityState(ContactLists);
+            
+            //writing to txt,csv
             CSVHandler.WriteToCSVFile(ContactLists);
+            FileIO.WriteToTxt(ContactLists);
         }
         public void showList()
         {
