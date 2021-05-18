@@ -7,3 +7,4 @@ ina,moran,Erie Rhode Island 24975,bengaluru,karnataka,655739,6878998709,ina@yaho
 iyan,zeraz,#654,mumbai,maharastra,456566,8767764532,iyaz.zz@yahoo.in
 azad,messa,#764 baker street,mumbai,maharastra,334467,8678564736,mssi.az@yahoo.com
 azo,peice,#344 avenue gas st.,mumbai,maharastra,756677,7465764765,azo.str@yahoo.com
+cathi,lastt,#443 streen two,mumbai,maharastra,564665,8576564663,kzzy@gmail.com

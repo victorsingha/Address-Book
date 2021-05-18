@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Address_Book
@@ -17,8 +18,9 @@ namespace Address_Book
         }
         public void ShowInBrief()
         {
+            List<Contact> sortedList = ContactLists.OrderBy(o => o.FirstName).ToList();
             int i = 1;
-            foreach (Contact contact in ContactLists)
+            foreach (Contact contact in sortedList)
             {
                 Console.WriteLine($" {i}.{contact.FirstName} {contact.LastName} [{contact.Email}]");
                 i++;
