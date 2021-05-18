@@ -55,6 +55,29 @@ namespace Address_Book
             Write_To_JSON_CSV_TXT();
 
         }
+        public void ShowOneContact(string fName)
+        {
+            bool flag = false;
+            foreach (var contact in ContactLists)
+            {
+                if (contact.FirstName.ToLower() == fName.ToLower())
+                {
+                    flag = true;
+                    Console.WriteLine("-----------------------------------");
+                    Console.WriteLine(" FirstName: " + contact.FirstName);
+                    Console.WriteLine(" LastName: " + contact.LastName);
+                    Console.WriteLine(" Address: " + contact.Address);
+                    Console.WriteLine(" City: " + contact.City);
+                    Console.WriteLine(" State: " + contact.State);
+                    Console.WriteLine(" ZipCode: " + contact.Zip);
+                    Console.WriteLine(" Phone Number: " + contact.PhoneNumber);
+                    Console.WriteLine(" Email: " + contact.Email);
+                    Console.WriteLine("-----------------------------------");
+                    Console.WriteLine("                                   ");
+                }
+            }
+            if (flag == false) Console.WriteLine("------No Contact with given First Name.------");
+        }
         public void showList()
         {
            foreach(var contact in ContactLists)
@@ -74,10 +97,12 @@ namespace Address_Book
         }
         public void editContact(string fName)
         {
+            bool flag = false;
             foreach(var contact in ContactLists)
             {
                 if(contact.FirstName.ToLower() == fName.ToLower())
                 {
+                    flag = true;
                     Console.WriteLine("Edit? Old FirstName: " + contact.FirstName);
                     string newFirstName = Console.ReadLine();
                     Console.WriteLine("Edit? Old LastName: " + contact.LastName);
@@ -133,6 +158,7 @@ namespace Address_Book
                     Write_To_JSON_CSV_TXT();
                 }
             }
+            if (flag == false) Console.WriteLine("------No Contact with given First Name.------");
         }
         public void deleteContact(string fname)
         {
