@@ -8,3 +8,4 @@ iyan,zeraz,#654,mumbai,maharastra,456566,8767764532,iyaz.zz@yahoo.in
 azad,messa,#764 baker street,mumbai,maharastra,334467,8678564736,mssi.az@yahoo.com
 azo,peice,#344 avenue gas st.,mumbai,maharastra,756677,7465764765,azo.str@yahoo.com
 cathi,lastt,#443 streen two,mumbai,maharastra,564665,8576564663,kzzy@gmail.com
+bzo,zas,#233 street,mumbai,maharastra,656654,8876545554,bzo@gmail.com
