@@ -5,7 +5,8 @@ namespace Address_Book
     class Program
     {
         static void Main(string[] args)
-        {          
+        {
+            //CSVHandler.ReadFromCSV();       
             ContactOperation contactOperation = new ContactOperation();
             contactOperation.generateData();
             while (true)
