@@ -36,7 +36,6 @@ namespace Address_Book
                     bool result = int.TryParse(data, out input);
                     if (result)
                     {
-                        Console.WriteLine(input);
                         switch (input)
                         {
                             case 1:
