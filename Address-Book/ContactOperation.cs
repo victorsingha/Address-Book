@@ -54,9 +54,9 @@ namespace Address_Book
         {
             Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             this.ContactLists.Add(newContact);
+            dBHandler.addContact(newContact);
             filterCityState(ContactLists);
-            Write_To_JSON_CSV_TXT();
-
+            //Write_To_JSON_CSV_TXT();  
         }
         public void ShowOneContact(string fName)
         {
@@ -158,7 +158,7 @@ namespace Address_Book
                     {
                         contact.Email = newEmail;
                     }
-                    Write_To_JSON_CSV_TXT();
+                    //Write_To_JSON_CSV_TXT();
                 }
             }
             if (flag == false) Console.WriteLine("------No Contact with given First Name.------");
@@ -172,7 +172,7 @@ namespace Address_Book
                     ContactLists.Remove(contact);
                     Console.WriteLine("------Contact Deleted Successfully.------");
                     filterCityState(ContactLists);
-                    Write_To_JSON_CSV_TXT();
+                    //Write_To_JSON_CSV_TXT();
                     break;
                 }
             }

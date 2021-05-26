@@ -7,9 +7,9 @@ namespace Address_Book
 {
     public class DBHandler
     {
-        private static string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=address_book_service;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        static string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=address_book_service;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection connection = new SqlConnection(connectionString);
-        private List<Contact> contactList = new List<Contact>();
+        List<Contact> contactList = new List<Contact>();
         public List<Contact> GetAllData()
         {
             try
@@ -38,10 +38,11 @@ namespace Address_Book
                             //System.Console.WriteLine("\n");
                             contactList.Add(contact);
                         }
+
                     }
                     else
                     {
-                        System.Console.WriteLine("No data found");
+                        Console.WriteLine("No data found");
                     }
                 }
             }
@@ -50,6 +51,39 @@ namespace Address_Book
                 System.Console.WriteLine(e.Message);
             }
             return contactList;
+        }
+
+        public void addContact(Contact contact)
+        {
+            try
+            {
+                using (this.connection)
+                {
+                    string query = $"insert into contacts (Firstname, Lastname, Address, City, State, Zip, PhoneNumber, Email) values ('{contact.FirstName}','{contact.LastName}','{contact.Address}','{contact.City}','{contact.State}','{contact.Zip}','{contact.PhoneNumber}','{contact.Email}')";
+                    SqlCommand cmd = new SqlCommand(query, this.connection);
+                    this.connection.Open();
+                    var result = cmd.ExecuteNonQuery();
+                    this.connection.Close();
+                    if (result != 0)
+                    {
+                        Console.WriteLine("Data Inserted");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Data Not Inserted");
+
+                    }
+                }
+
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                this.connection.Close();
+            }
         }
     }
 }
