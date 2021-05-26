@@ -80,5 +80,28 @@ namespace Address_Book
                 Console.WriteLine(e);
             }
         }
+        public void removeContact(String firstName)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                using (connection)
+                {
+                    string query = $"delete from contacts where Firstname = '{firstName}'";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    var result = cmd.ExecuteNonQuery();
+                    connection.Close();
+                    if (result != 0)
+                    {
+                        Console.WriteLine("Contact Deleted from DB.");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
     }
 }

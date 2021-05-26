@@ -165,7 +165,8 @@ namespace Address_Book
         }
         public void deleteContact(string fname)
         {
-            foreach(var contact in ContactLists)
+            dBHandler.removeContact(fname);
+            foreach (var contact in ContactLists)
             {
                 if (contact.FirstName.ToLower() == fname.ToLower())
                 {
