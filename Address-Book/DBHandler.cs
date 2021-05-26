@@ -38,7 +38,6 @@ namespace Address_Book
                             //System.Console.WriteLine("\n");
                             contactList.Add(contact);
                         }
-
                     }
                     else
                     {
@@ -50,39 +49,35 @@ namespace Address_Book
             {
                 System.Console.WriteLine(e.Message);
             }
+            finally
+            {
+                this.connection.Close();
+            }
             return contactList;
         }
 
         public void addContact(Contact contact)
         {
+            string cS = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=address_book_service;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            SqlConnection con = new SqlConnection(cS);
             try
             {
-                using (this.connection)
+                using (con)
                 {
                     string query = $"insert into contacts (Firstname, Lastname, Address, City, State, Zip, PhoneNumber, Email) values ('{contact.FirstName}','{contact.LastName}','{contact.Address}','{contact.City}','{contact.State}','{contact.Zip}','{contact.PhoneNumber}','{contact.Email}')";
-                    SqlCommand cmd = new SqlCommand(query, this.connection);
-                    this.connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    con.Open();
                     var result = cmd.ExecuteNonQuery();
-                    this.connection.Close();
+                    con.Close();
                     if (result != 0)
                     {
-                        Console.WriteLine("Data Inserted");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Data Not Inserted");
-
+                        Console.WriteLine("Data Inserted.");                
                     }
                 }
-
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
-            }
-            finally
-            {
-                this.connection.Close();
             }
         }
     }
