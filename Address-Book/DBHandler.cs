@@ -8,17 +8,18 @@ namespace Address_Book
     public class DBHandler
     {
         static string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=address_book_service;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        SqlConnection connection = new SqlConnection(connectionString);
+        
         List<Contact> contactList = new List<Contact>();
         public List<Contact> GetAllData()
         {
+            SqlConnection connection = new SqlConnection(connectionString);
             try
             {
-                using (this.connection)
+                using (connection)
                 {
                     string query = @"Select * from contacts;";
-                    SqlCommand cmd = new SqlCommand(query, this.connection);
-                    this.connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.HasRows)
                     {
@@ -51,24 +52,23 @@ namespace Address_Book
             }
             finally
             {
-                this.connection.Close();
+                connection.Close();
             }
             return contactList;
         }
 
         public void addContact(Contact contact)
         {
-            string cS = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=address_book_service;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            SqlConnection con = new SqlConnection(cS);
+            SqlConnection connection = new SqlConnection(connectionString);
             try
             {
-                using (con)
+                using (connection)
                 {
                     string query = $"insert into contacts (Firstname, Lastname, Address, City, State, Zip, PhoneNumber, Email) values ('{contact.FirstName}','{contact.LastName}','{contact.Address}','{contact.City}','{contact.State}','{contact.Zip}','{contact.PhoneNumber}','{contact.Email}')";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    con.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
                     var result = cmd.ExecuteNonQuery();
-                    con.Close();
+                    connection.Close();
                     if (result != 0)
                     {
                         Console.WriteLine("Data Inserted.");                
