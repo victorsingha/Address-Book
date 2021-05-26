@@ -7,9 +7,9 @@ namespace Address_Book
 {
     public class DBHandler
     {
-        public static string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=address_book_service;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=address_book_service;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection connection = new SqlConnection(connectionString);
-        List<Contact> contactList = new List<Contact>();
+        private List<Contact> contactList = new List<Contact>();
         public List<Contact> GetAllData()
         {
             try
