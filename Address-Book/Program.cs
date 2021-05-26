@@ -6,8 +6,6 @@ namespace Address_Book
     {
         static void Main(string[] args)
         {
-            DBHandler dBHandler = new DBHandler();
-            dBHandler.GetAllData();
             //CSVHandler.ReadFromCSV();       
             ContactOperation contactOperation = new ContactOperation();
             contactOperation.generateData();

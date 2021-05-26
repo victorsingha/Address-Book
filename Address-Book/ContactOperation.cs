@@ -8,12 +8,15 @@ namespace Address_Book
     public class ContactOperation
     {
         private List<Contact> ContactLists = new List<Contact>();
+        DBHandler dBHandler = new DBHandler();
         private Dictionary<string, List<Contact>> CitiesDict = new Dictionary<string, List<Contact>>();
         private Dictionary<string, List<Contact>> StatesDict = new Dictionary<string, List<Contact>>();
         public void generateData()
         {
             // generating data from JSON file.
-            ContactLists = JsonHandler.GetDataFromJson();
+            //ContactLists = JsonHandler.GetDataFromJson();
+
+            ContactLists = dBHandler.GetAllData();
             filterCityState(ContactLists);
         }
         public void ShowInBrief()

@@ -9,11 +9,11 @@ namespace Address_Book
     {
         public static string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=address_book_service;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection connection = new SqlConnection(connectionString);
-        public void GetAllData()
+        List<Contact> contactList = new List<Contact>();
+        public List<Contact> GetAllData()
         {
             try
             {
-                Contact contact = new Contact();
                 using (this.connection)
                 {
                     string query = @"Select * from contacts;";
@@ -24,6 +24,7 @@ namespace Address_Book
                     {
                         while (dr.Read())
                         {
+                            Contact contact = new Contact();
                             contact.FirstName = dr.GetString(1);
                             contact.LastName = dr.GetString(2);
                             contact.Address = dr.GetString(3);
@@ -33,8 +34,9 @@ namespace Address_Book
                             contact.PhoneNumber = dr.GetString(7);
                             contact.Email = dr.GetString(8);
 
-                            System.Console.WriteLine($"{contact.FirstName} {contact.LastName}");
-                            System.Console.WriteLine("\n");
+                            //System.Console.WriteLine($"{contact.FirstName} {contact.LastName}");
+                            //System.Console.WriteLine("\n");
+                            contactList.Add(contact);
                         }
                     }
                     else
@@ -47,6 +49,7 @@ namespace Address_Book
             {
                 System.Console.WriteLine(e.Message);
             }
+            return contactList;
         }
     }
 }
