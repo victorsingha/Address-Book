@@ -84,12 +84,14 @@ namespace Address_Book
                                 Console.WriteLine("Enter City Name.");
                                 string cityName = Console.ReadLine();
                                 contactOperation.searchCityOrState(cityName);
+                                DBHandler.countCity(cityName);
                                 break;
 
                             case 6:
                                 Console.WriteLine("Enter State Name.");
                                 string stateName = Console.ReadLine();
                                 contactOperation.searchCityOrState(stateName);
+                                DBHandler.countState(stateName);
                                 break;
 
                             case 7:

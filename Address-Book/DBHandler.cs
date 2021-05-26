@@ -103,5 +103,49 @@ namespace Address_Book
                 Console.WriteLine(e);
             }
         }
+        static public void countCity(String city)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                using (connection)
+                {
+                    string query = $"select count(*) from contacts where City = '{city}'";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    int numrows = (int)cmd.ExecuteScalar();
+                    connection.Close();
+                    Console.WriteLine($"------------------------------------------");
+                    Console.WriteLine($"Total Count of '{city}' city {numrows}");
+                    Console.WriteLine($"------------------------------------------");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+        static public void countState(String state)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                using (connection)
+                {
+                    string query = $"select count(*) from contacts where State = '{state}'";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    int numrows = (int)cmd.ExecuteScalar();
+                    connection.Close();
+                    Console.WriteLine($"------------------------------------------");
+                    Console.WriteLine($"Total Count of '{state}' city {numrows}");
+                    Console.WriteLine($"------------------------------------------");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
     }
 }
