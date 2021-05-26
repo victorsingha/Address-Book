@@ -26,6 +26,10 @@ namespace Address_Book
             this.PhoneNumber = phoneNumber;
             this.Email = email;
         }
+        public Contact()
+        {
+
+        }
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }

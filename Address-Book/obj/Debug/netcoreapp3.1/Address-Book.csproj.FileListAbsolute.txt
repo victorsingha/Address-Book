@@ -14,3 +14,9 @@ C:\Users\vicun\source\repos\Address-Book\Address-Book\obj\Debug\netcoreapp3.1\Ad
 C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\CsvHelper.dll
 C:\Users\vicun\source\repos\Address-Book\Address-Book\obj\Debug\netcoreapp3.1\Address-Book.csproj.CopyComplete
 C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\vicun\source\repos\Address-Book\Address-Book\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
