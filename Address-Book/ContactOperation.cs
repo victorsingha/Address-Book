@@ -100,12 +100,15 @@ namespace Address_Book
         }
         public void editContact(string fName)
         {
+            Contact dbcontact = new Contact();
             bool flag = false;
             foreach(var contact in ContactLists)
             {
                 if(contact.FirstName.ToLower() == fName.ToLower())
                 {
                     flag = true;
+                    string firstName_temp = contact.FirstName;
+
                     Console.WriteLine("Edit? Old FirstName: " + contact.FirstName);
                     string newFirstName = Console.ReadLine();
                     Console.WriteLine("Edit? Old LastName: " + contact.LastName);
@@ -123,41 +126,59 @@ namespace Address_Book
                     Console.WriteLine("Edit? Old Email: " + contact.Email);
                     string newEmail = Console.ReadLine();
                     Console.WriteLine("-----------------");
-
-                    if(newFirstName != "")
+                    
+                    if (newFirstName != "")
                     {
                         contact.FirstName = newFirstName;
+                        dbcontact.FirstName = newFirstName;
                     }
+                    else dbcontact.FirstName = contact.FirstName;
                     if (newLastName != "")
                     {
                         contact.LastName = newLastName;
+                        dbcontact.LastName = newLastName;
                     }
+                    else dbcontact.LastName = contact.LastName;
                     if (newAddress != "")
                     {
                         contact.Address = newAddress;
+                        dbcontact.Address = newAddress;
                     }
+                    else dbcontact.Address = contact.Address;
                     if (newCity != "")
                     {
                         contact.City = newCity;
                         filterCityState(ContactLists);
+                        dbcontact.City = newCity;
                     }
+                    else dbcontact.City = contact.City;
                     if (newState != "")
                     {
                         contact.State = newState;
                         filterCityState(ContactLists);
+                        dbcontact.State = newState;
                     }
+                    else dbcontact.State = contact.State;
                     if (newZip != "")
                     {
                         contact.Zip = newZip;
+                        dbcontact.Zip = newZip;
                     }
+                    else dbcontact.Zip = contact.Zip;
                     if (newPhoneNumber != "")
                     {
                         contact.PhoneNumber = newPhoneNumber;
+                        dbcontact.PhoneNumber = newPhoneNumber;
                     }
+                    else dbcontact.PhoneNumber = contact.PhoneNumber;
                     if (newEmail != "")
                     {
                         contact.Email = newEmail;
+                        dbcontact.Email = newEmail;
                     }
+                    else dbcontact.Email = contact.Email;
+                    dBHandler.updateContact(dbcontact,firstName_temp);
+
                     //Write_To_JSON_CSV_TXT();
                 }
             }
