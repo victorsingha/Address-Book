@@ -155,7 +155,6 @@ namespace Address_Book
                 using (connection)
                 {
                     string query = $"UPDATE contacts SET Firstname = '{contact.FirstName}', Lastname = '{contact.LastName}', Address = '{contact.Address}', City = '{contact.City}', State = '{contact.State}', Zip = '{contact.Zip}', PhoneNumber = '{contact.PhoneNumber}', Email = '{contact.Email}' WHERE Firstname = '{firstName}'";
-                    //string query = $"UPDATE contacts SET Firstname = 'wannnn', Lastname = 'daaa', Address = 'dasdsa', City = 'dsadsa', State = 'ffff', Zip = 'dsadsad', PhoneNumber = 'dsadsad', Email = 'dsadsad' WHERE Firstname = 'iris'";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     connection.Open();
                     var result = cmd.ExecuteNonQuery();
