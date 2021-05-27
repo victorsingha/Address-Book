@@ -138,7 +138,7 @@ namespace Address_Book
                     int numrows = (int)cmd.ExecuteScalar();
                     connection.Close();
                     Console.WriteLine($"------------------------------------------");
-                    Console.WriteLine($"Total Count of '{state}' city {numrows}");
+                    Console.WriteLine($"Total Count of '{state}' state {numrows}");
                     Console.WriteLine($"------------------------------------------");
                 }
             }
